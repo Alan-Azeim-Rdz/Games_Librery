@@ -17,7 +17,7 @@ namespace Games_Librery
 
         private string clientId = "s87stzlrar3716fqqtfyao1wtaf0b6";         
         private string accessToken;     
-        private string clientSecret = "9ghh5i8ovl0ucnhbvxchhy0w793m22T";
+        private string clientSecret = "t1klkmgshqsv1ct8mk9x1jm5heoer0";
         private DateTime tokenExpiration;
 
         public ApiFrom()
@@ -101,7 +101,7 @@ namespace Games_Librery
                 client.DefaultRequestHeaders.Add("Client-ID", clientId);
                 client.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken}");
 
-                string query = $"fields name, first_release_date, cover.url; search \"{nombre}\"; limit 10;";
+                string query = $@"fields name, first_release_date, genres.name, platforms.name, involved_companies.company.name, themes.name, cover.url; search ""{nombre}"";limit 10;";
 
                 var content = new StringContent(query, Encoding.UTF8, "text/plain");
                 var response = await client.PostAsync("https://api.igdb.com/v4/games", content);

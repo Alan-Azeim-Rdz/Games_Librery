@@ -76,9 +76,10 @@
             // 
             // picPortada
             // 
-            picPortada.Location = new Point(318, 30);
+            picPortada.Location = new Point(264, 31);
             picPortada.Name = "picPortada";
-            picPortada.Size = new Size(161, 160);
+            picPortada.Size = new Size(228, 214);
+            picPortada.SizeMode = PictureBoxSizeMode.AutoSize;
             picPortada.TabIndex = 4;
             picPortada.TabStop = false;
             // 
