@@ -1,24 +1,30 @@
 namespace Games_Librery
 {
+    using Azure.Core;
     using Microsoft.Data.SqlClient;
+    using Newtonsoft.Json.Linq;
     using System;
     using System.Data;
     using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
     public partial class Form1 : Form
     {
+        // Variable global para guardar el token
+        private string accessToken = "";
+
+        // Conexión a la base de datos
+        string conectionDb = @"Data Source=192.168.1.5\MSSQLserver02,1433;Database=Game_Library;User Id=Lux;Password=1234567890;TrustServerCertificate=True";
+
         public Form1()
         {
             InitializeComponent();
             load_data();
         }
-        //conection to database Games_Library
-        string conectionDb = @"Data Source=192.168.1.5\MSSQLserver02,1433;Database=Game_Library;User Id=Lux;Password=1234567890;TrustServerCertificate=True";
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void load_data()
@@ -57,11 +63,11 @@ namespace Games_Librery
                 {
                     try
                     {
-                        pictureBoxLogo.Load(url); // Carga la imagen desde la URL
+                        pictureBoxLogo.Load(url);
                     }
                     catch
                     {
-                        pictureBoxLogo.Image = null; // O carga una imagen por defecto si quieres
+                        pictureBoxLogo.Image = null;
                     }
                 }
                 else
@@ -75,5 +81,43 @@ namespace Games_Librery
             }
         }
 
+
+        private void BtnApi_Click(object sender, EventArgs e)
+        {
+            ApiFrom apiForm = new ApiFrom();
+            apiForm.ShowDialog();
+        }
+
+        //public async Task<string> ObtenerTokenAsync()
+        //{
+        //    string clientId = "s87stzlrar3716fqqtfyao1wtaf0b6";
+        //    string clientSecret = "9ghh5i8ovl0ucnhbvxchhy0w793m22";
+        //    string url = "https://id.twitch.tv/oauth2/token";
+
+        //    using (var client = new HttpClient())
+        //    {
+        //        var parameters = new Dictionary<string, string>
+        //        {
+        //            { "client_id", clientId },
+        //            { "client_secret", clientSecret },
+        //            { "grant_type", "client_credentials" }
+        //        };
+
+        //        var content = new FormUrlEncodedContent(parameters);
+        //        var response = await client.PostAsync(url, content);
+
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            var json = await response.Content.ReadAsStringAsync();
+        //            var data = JObject.Parse(json);
+        //            return data["access_token"].ToString();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Error al obtener el token: " + response.StatusCode);
+        //            return null;
+        //        }
+        //    }
+        //}
     }
 }

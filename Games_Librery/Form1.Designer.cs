@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            button2 = new Button();
+            BtnApi = new Button();
             pictureBoxLogo = new PictureBox();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
@@ -46,14 +46,15 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
+            // BtnApi
             // 
-            button2.Location = new Point(120, 408);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            BtnApi.Location = new Point(57, 298);
+            BtnApi.Name = "BtnApi";
+            BtnApi.Size = new Size(138, 51);
+            BtnApi.TabIndex = 1;
+            BtnApi.Text = "button2";
+            BtnApi.UseVisualStyleBackColor = true;
+            BtnApi.Click += BtnApi_Click;
             // 
             // pictureBoxLogo
             // 
@@ -84,7 +85,7 @@
             ClientSize = new Size(1456, 591);
             Controls.Add(dataGridView1);
             Controls.Add(pictureBoxLogo);
-            Controls.Add(button2);
+            Controls.Add(BtnApi);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
@@ -96,7 +97,7 @@
         #endregion
 
         private Button button1;
-        private Button button2;
+        private Button BtnApi;
         private PictureBox pictureBoxLogo;
         private DataGridView dataGridView1;
     }
